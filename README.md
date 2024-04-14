@@ -48,7 +48,7 @@ Install Docker, MSSQL, Azure Data Studio (or Visual Studio Code) and run on your
    ```
 
 ### Creating Tables
-Connect to your DBMS using a SQL client (e.g., MySQL Workbench, pgAdmin).  
+Connect to your DBMS using a SQL client (e.g., Azure Data Studio, Visual Studio Code).  
 <br>
 Use the following commands to create their respective tables:  
 <br>
@@ -197,9 +197,7 @@ lowest_score=78
 Test Case:
 course_id=1
 ```
-```
 Output:
-```
 | student_id | first_name | last_name | course_id |
 | --- | --- | --- | --- |
 | 1 | Jaime | Stevens | 1 |
@@ -212,9 +210,7 @@ Output:
 Test Case:
 Course_id=1
 ```
-```
 Output:
-```
 | first_name | last_name | assignment_id | category | score |
 | --- | --- | --- | --- | --- |
 | Monae | Adams | 1 | Assignments | 9 |
