@@ -103,3 +103,34 @@ VALUES (1, 'Jamie', 'Stevens', 1),
 | 3 | Alliston | Dunn | 1 |
 | 4 | Sam | McQueen | 1 |
 
+
+
+
+
+Insertions for Assignment table:
+```
+INSERT INTO Assignment (assignment_id, category, percentage, course_id)
+VALUES (1, 'Assignments', 15.0, 1),
+(2, 'Midterm', 30.0, 1),
+(3, 'Project', 15.0, 1),
+(4, 'Final Exam', 40.0, 1);
+```
+
+Insertions for Grades table:
+```
+INSERT INTO Grades (grade_id, assignment_id, student_id, score)
+VALUES (1, 1, 1, 6.5),
+(2, 2, 1, 92.0),
+(3, 3, 1, 75.0),
+(4, 4, 1, 88.0),
+(5, 1, 2, 9.0),
+(6, 2, 2, 84.5),
+(7, 3, 2, 82.0),
+(8, 4, 2, 92.0),
+(9, 1, 3, 7.0),
+(10, 2, 3, 78.0),
+(11, 3, 3, 90.0),
+(12, 4, 3, 95.0);
+```
+
+### Test cases and Result
