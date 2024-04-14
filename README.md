@@ -140,7 +140,7 @@ VALUES (1, 'Assignments', 15.0, 1),
 | assignment_id | category | percentage | course_id |
 | --- | --- | --- | --- |
 | 1 | Assignments | 15 | 1 |
-| 2 | Midterm | 20 | 1 |
+| 2 | Midterm | 30 | 1 |
 | 3 | Project | 15 | 1 |
 | 4 | Final Exam | 40 | 1 |
 
@@ -197,7 +197,9 @@ lowest_score=78
 Test Case:
 course_id=1
 ```
+```
 Output:
+```
 | student_id | first_name | last_name | course_id |
 | --- | --- | --- | --- |
 | 1 | Jaime | Stevens | 1 |
@@ -210,7 +212,9 @@ Output:
 Test Case:
 Course_id=1
 ```
+```
 Output:
+```
 | first_name | last_name | assignment_id | category | score |
 | --- | --- | --- | --- | --- |
 | Monae | Adams | 1 | Assignments | 9 |
@@ -236,6 +240,13 @@ course_id=1
 ```      
 Output:
 ```
+| assignment_id | category | percentage | course_id |
+| --- | --- | --- | --- |
+| 1 | Assignments | 15 | 1 |
+| 2 | Midterm | 30 | 1 |
+| 3 | Project | 15 | 1 |
+| 4 | Final Exam | 40 | 1 |
+| 5 | Extra Credit | 10 | 1 |
 
 ### Change the percentages of the categories for a course
 ```
@@ -245,6 +256,13 @@ category = 'Assignments', course_id = 1
 ```
 Output:
 ```
+| assignment_id | category | percentage | course_id |
+| --- | --- | --- | --- |
+| 1 | Assignments | 30 | 1 |
+| 2 | Midterm | 30 | 1 |
+| 3 | Project | 15 | 1 |
+| 4 | Final Exam | 40 | 1 |
+| 5 | Extra Credit | 10 | 1 |
 
 ### Add 2 points to the score of each student on an assignment
 ```
@@ -254,6 +272,24 @@ assignment_id=3
 ```
 Output:
 ```
+| first_name | last_name | assignment_id | category | score |
+| --- | --- | --- | --- | --- |
+| Monae | Adams | 1 | Assignments | 9 |
+| Monae | Adams | 2 | Midterm | 84.5 |
+| Monae | Adams | 3 | Project | 84 |
+| Monae | Adams | 4 | Final | 92 |
+| Alliston | Dunn | 1 | Assignments | 7 |
+| Alliston | Dunn | 2 | Midterm | 78 |
+| Alliston | Dunn | 3 | Project | 92 |
+| Alliston | Dunn | 4 | Final | 95 |
+| Sam | McQueen | 2 | Midterm | 78 |
+| Sam | McQueen | 3 | Project | 72 |
+| Sam | McQueen | 4 | Final | 85 |
+| Jaime | Stevens | 1 | Assignments | 6.5 |
+| Jaime | Stevens | 2 | Midterm | 92 |
+| Jaime | Stevens | 3 | Project | 77 |
+| Jaime | Stevens | 4 | Final | 88 |
+
 
 ### Add 2 points just to those students whose last name contains a ‘Q’
 ```
@@ -272,6 +308,9 @@ student_id=1
 ```
 Output:
 ```
+| first_name | last_name | grade |
+| --- | --- | --- |
+| Jamie | Stevens | 74.95 |
 
 ### Compute the grade for a student, where the lowest score for a given category is dropped
 ```
@@ -281,4 +320,6 @@ student_id=2
 ```
 Output:
 ```
-
+| first_name | last_name | grade |
+| --- | --- | --- |
+| Monae | Adams | 5.7 |
