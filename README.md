@@ -193,7 +193,7 @@ Course_id=1
 ```
 Output:
 ```
-| student_id | first_name | last_name | course_id | course_id |
+| first_name | last_name | assignment_id | category | score |
 | --- | --- | --- | --- | --- |
 | Monae | Adams | 1 | Assignments | 9 |
 | Monae | Adams | 2 | Midterm | 84.5 |
@@ -205,7 +205,7 @@ Output:
 | Alliston | Dunn | 4 | Final | 95 |
 | Sam | McQueen | 2 | Midterm | 78 |
 | Sam | McQueen | 3 | Project | 70 |
-| Sam | McQueen | Final | 85 |
+| Sam | McQueen | 4 | Final | 85 |
 | Jaime | Stevens | 1 | Assignments | 6.5 |
 | Jaime | Stevens | 2 | Midterm | 92 |
 | Jaime | Stevens | 3 | Project | 75 |
