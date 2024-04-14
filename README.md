@@ -26,11 +26,9 @@ You are asked to implement a grade book to keep track student grades for several
 Install an SQL DBMS (e.g., MySQL) and run on your local machine/remote server.
 
 ### Creating Tables
-Connect to your DBMS using a SQL client (e.g., MySQL Workbench, pgAdmin).
-
-### Use the following commands to create their respective tables:
-Course table: CREATE TABLE Course (
-
+Connect to your DBMS using a SQL client (e.g., MySQL Workbench, pgAdmin).  
+Use the following commands to create their respective tables:  
+Course table: CREATE TABLE Course (<br>
 course_id INT PRIMARY KEY,
 
 department VARCHAR(255),
