@@ -158,9 +158,38 @@ VALUES (1, 1, 1, 6.5),
 | 11 | 3 | 3 | 90.0 |
 | 12 | 4 | 3 | 95.0 |
 
-
-
-
-
 ## Test cases and Result
 ### Compute the average/highest/lowest score of an assignment
+```
+Test case:
+assignment_id=2
+```
+```
+Output:
+average_score=83.125
+highest_score=92
+lowest_score=78
+```
+### List all of the students in a given course;
+```
+Test Case: c
+ourse_id=1
+```
+```
+Output:
+```
+| student_id | first_name | last_name | course_id |
+| --- | --- | --- | --- |
+| 1 | Jaime | Stevens | 1 |
+| 2 | Monae | Adams | 1 |
+| 3 | Alliston | Dunn | 1 |
+| 4 | Sam | McQueen | 1 |
+
+### List all of the students in a course and all of their scores on every assignment;
+```
+Test Case:
+Course_id=1
+```
+```
+Output:
+```
