@@ -83,7 +83,7 @@ VALUES (1, 'CSCI', 432, 'Database Systems', 'Spring', 2024);
 ```
 | course_id | department | course_number | course_name | semester | year |
 | --- | --- | --- | --- | --- | --- |
-| 1 | CSCI | 432 | Database Systems | Spring | 2024 |
+| 1 | CSCI | 432 | Database Systems | Spring | 2024 |  
 <br>
 Insertions for Student table:
 ```
@@ -92,10 +92,10 @@ VALUES (1, 'Jamie', 'Stevens', 1),
 (2, 'Monae', 'Adams', 1),
 (3, 'Alliston', 'Dunn', 1);
 ```
-|student_id|first_name|last_name|course_id|
-|---|---|---|---|
-|1|Jamie|Stevens|1|
-|2|Monae|Adams|1|
-|3|Alliston|Dunn|1|
-|4|Sam|McQueen|1|
+| student_id | first_name | last_name | course_id |
+| --- | --- | --- | --- |
+| 1 | Jamie | Stevens | 1 |
+| 2 | Monae | Adams | 1 |
+| 3 | Alliston | Dunn | 1 |
+| 4 | Sam | McQueen | 1 |
 
