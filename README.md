@@ -32,16 +32,17 @@ Use the following commands to create their respective tables:
 <br>
 Course table: 
 ```
-CREATE TABLE Course (  
-course_id INT PRIMARY KEY,  
-department VARCHAR(255),  
-course_number INT,  
-course_name VARCHAR(255),  
+CREATE TABLE Course (
+course_id INT PRIMARY KEY,
+department VARCHAR(255),
+course_number INT,
+course_name VARCHAR(255),
 semester VARCHAR(255),
 year INT
 );
 ```
 Student table:
+```
 CREATE TABLE Student (
 student_id INT PRIMARY KEY,
 first_name VARCHAR(255),
@@ -49,8 +50,9 @@ last_name VARCHAR(255),
 course_id INT,
 FOREIGN KEY (course_id) REFERENCES Course(course_id)
 );
-
+```
 Assignment table:
+```
 CREATE TABLE Assignment (
 assignment_id INT PRIMARY KEY,
 category VARCHAR(255),
@@ -58,8 +60,9 @@ percentage DECIMAL(5,2),
 course_id INT,
 FOREIGN KEY (course_id) REFERENCES Course(course_id)
 );
-
+```
 Grades table:
+```
 CREATE TABLE Grades (
 grade_id INT PRIMARY KEY,
 assignment_id INT,
@@ -69,9 +72,12 @@ FOREIGN KEY (assignment_id) REFERENCES
 Assignment(assignment_id),
 FOREIGN KEY (student_id) REFERENCES Student(student_id)
 );
-
-Inserting Values
-Use the following commands to insert values into the tables using the following examples:
-Insertions for Course table:
+```
+### Inserting Values
+Use the following commands to insert values into the tables using the following examples:  
+<br>
+Insertions for Course table:  
+```
 INSERT INTO Course (course_id, department, course_number, course_name, semester, year)
 VALUES (1, 'CSCI', 432, 'Database Systems', 'Spring', 2024);
+```
