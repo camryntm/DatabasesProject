@@ -162,4 +162,5 @@ VALUES (1, 1, 1, 6.5),
 
 
 
-### Test cases and Result
+## Test cases and Result
+### Compute the average/highest/lowest score of an assignment
