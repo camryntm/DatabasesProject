@@ -115,6 +115,17 @@ VALUES (1, 'Assignments', 15.0, 1),
 (3, 'Project', 15.0, 1),
 (4, 'Final Exam', 40.0, 1);
 ```
+| assignment_id | category | percentage | course_id |
+| --- | --- | --- | --- |
+| 1 | Assignments | 15 | 1 |
+| 2 | Midterm | 20 | 1 |
+| 3 | Project | 15 | 1 |
+| 4 | Final Exam | 40 | 1 |
+
+
+
+
+
 
 Insertions for Grades table:
 ```
