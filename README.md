@@ -80,7 +80,7 @@ Insertions for Course table:
 ```
 INSERT INTO Course (course_id, department, course_number, course_name, semester, year)
 VALUES (1, 'CSCI', 432, 'Database Systems', 'Spring', 2024);
+```
 | course_id | department | course_number | course_name | semester | year |
 | --- | --- | --- | --- | --- | --- |
 | 1 | CSCI | 432 | Database Systems | Spring | 2024 |
-```
