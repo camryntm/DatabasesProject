@@ -22,23 +22,31 @@ You are asked to implement a grade book to keep track student grades for several
 ## Instructions
    The system is implemented in SQL. Please read below to compile and execute the program:
    
-Prerequisites
+### Prerequisites
 Install an SQL DBMS (e.g., MySQL) and run on your local machine/remote server.
 
-Creating Tables
+###Creating Tables
 Connect to your DBMS using a SQL client (e.g., MySQL Workbench, pgAdmin).
 
-Use the following commands to create their respective tables:
+###Use the following commands to create their respective tables:
 Course table: CREATE TABLE Course (
+
 course_id INT PRIMARY KEY,
+
 department VARCHAR(255),
+
 course_number INT,
+
 course_name VARCHAR(255),
+
 semester VARCHAR(255),
+
 year INT
+
 );
 
-Student table:
+
+### Student table:
 CREATE TABLE Student (
 student_id INT PRIMARY KEY,
 first_name VARCHAR(255),
