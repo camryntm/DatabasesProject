@@ -23,7 +23,29 @@ You are asked to implement a grade book to keep track student grades for several
    The system is implemented in SQL. Please read below to compile and execute the program:
    
 ### Prerequisites
-Install an SQL DBMS (e.g., MySQL) and run on your local machine/remote server.
+Install Docker, MSSQL, Azure Data Studio (or Visual Studio Code) and run on your local machine/remote server
+#### Docker Setup
+1. Install Docker (https://docs.docker.com/desktop/install/mac-install/)
+2. Run Docker using command
+
+   ```
+   docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=VeryStr0ngP@ssw0rd" -p 1433:1433 --name sql --hostname sql --platform linux/amd64 -d mcr.microsoft.com/mssql/server:2022-latest
+   ```
+3. Run `docker ps` in terminal to check on status (if succesfull move forward)
+
+#### Connection to SQL CLI to Docker
+1. Run `mssql -u sa -p` in terminal (make sure mssql is already installed)
+2. Insert you specific password. For this tutorial, it is 'VeryStr0ngP@ssw0rd' (see Step 2 of Docker Setup)
+3. Launch designated SQL CLI (either Visual Code or Azure Data Studio)
+4. Connect to Docker using below credentials
+   
+   ```
+   Server - > localhost
+
+   Username -> sa
+
+   Password - > dockerStrongPwd123
+   ```
 
 ### Creating Tables
 Connect to your DBMS using a SQL client (e.g., MySQL Workbench, pgAdmin).  
