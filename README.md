@@ -89,7 +89,7 @@ VALUES (1, 'CSCI', 432, 'Database Systems', 'Spring', 2024);
 
 
 
-## Insertions for Student table:
+ Insertions for Student table:
 ```
 INSERT INTO Student (student_id, first_name, last_name, course_id)
 VALUES (1, 'Jamie', 'Stevens', 1),
