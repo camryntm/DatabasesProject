@@ -6,9 +6,9 @@ You are asked to implement a grade book to keep track student grades for several
 
 3. Tasks
    
-Design the ER diagram;
-Write the commands for creating tables and inserting values;
-Show the tables with the contents that you have inserted;
+- Design the ER diagram;
+- Write the commands for creating tables and inserting values;
+- Show the tables with the contents that you have inserted;
 Compute the average/highest/lowest score of an assignment;
 List all of the students in a given course;
 List all of the students in a course and all of their scores on every assignment;
