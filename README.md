@@ -18,7 +18,6 @@ Compute the grade for a student;
 Compute the grade for a student, where the lowest score for a given category is dropped.
 Instructions
 The system is implemented in SQL. Please read below to compile and execute the program:
-
 Prerequisites
 Install an SQL DBMS (e.g., MySQL) and run on your local machine/remote server.
 
