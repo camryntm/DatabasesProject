@@ -83,9 +83,13 @@ VALUES (1, 'CSCI', 432, 'Database Systems', 'Spring', 2024);
 ```
 | course_id | department | course_number | course_name | semester | year |
 | --- | --- | --- | --- | --- | --- |
-| 1 | CSCI | 432 | Database Systems | Spring | 2024 |  
-<br>
-Insertions for Student table:
+| 1 | CSCI | 432 | Database Systems | Spring | 2024 |
+
+
+
+
+
+## Insertions for Student table:
 ```
 INSERT INTO Student (student_id, first_name, last_name, course_id)
 VALUES (1, 'Jamie', 'Stevens', 1),
