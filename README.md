@@ -143,5 +143,25 @@ VALUES (1, 1, 1, 6.5),
 (11, 3, 3, 90.0),
 (12, 4, 3, 95.0);
 ```
+| grade_id | assignment_id | student_id | score |
+| --- | --- | --- | --- |
+| 1 | Assignments | 15 | 1 |
+| 2 | Midterm | 20 | 1 |
+| 3 | Project | 15 | 1 |
+| 4 | Final Exam | 40 | 1 |
+| 5 | Assignments | 15 | 1 |
+| 6 | Midterm | 20 | 1 |
+| 7 | Project | 15 | 1 |
+| 8 | Final Exam | 40 | 1 |
+| 9 | Assignments | 15 | 1 |
+| 10 | Midterm | 20 | 1 |
+| 11 | Project | 15 | 1 |
+| 12 | Final Exam | 40 | 1 |
+
+
+
+
+
+
 
 ### Test cases and Result
