@@ -192,7 +192,7 @@ average_score=83.125
 highest_score=92
 lowest_score=78
 ```
-### List all of the students in a given course;
+### List all of the students in a given course
 ```
 Test Case:
 course_id=1
@@ -207,7 +207,7 @@ Output:
 | 3 | Alliston | Dunn | 1 |
 | 4 | Sam | McQueen | 1 |
 
-### List all of the students in a course and all of their scores on every assignment;
+### List all of the students in a course and all of their scores on every assignment
 ```
 Test Case:
 Course_id=1
