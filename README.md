@@ -172,8 +172,8 @@ lowest_score=78
 ```
 ### List all of the students in a given course;
 ```
-Test Case: c
-ourse_id=1
+Test Case:
+course_id=1
 ```
 ```
 Output:
@@ -193,3 +193,20 @@ Course_id=1
 ```
 Output:
 ```
+| student_id | first_name | last_name | course_id | course_id |
+| --- | --- | --- | --- | --- |
+| Monae | Adams | 1 | Assignments | 9 |
+| Monae | Adams | 2 | Midterm | 84.5 |
+| Monae | Adams | 3 | Project | 82 |
+| Monae | Adams | 4 | Final | 92 |
+| Alliston | Dunn | 1 | Assignments | 7 |
+| Alliston | Dunn | 2 | Midterm | 78 |
+| Alliston | Dunn | 3 | Project | 90 |
+| Alliston | Dunn | 4 | Final | 95 |
+| Sam | McQueen | 2 | Midterm | 78 |
+| Sam | McQueen | 3 | Project | 70 |
+| Sam | McQueen | Final | 85 |
+| Jaime | Stevens | 1 | Assignments | 6.5 |
+| Jaime | Stevens | 2 | Midterm | 92 |
+| Jaime | Stevens | 3 | Project | 75 |
+| Jaime | Stevens | 4 | Final | 88 |
