@@ -232,3 +232,57 @@ Output:
 | Jaime | Stevens | 2 | Midterm | 92 |
 | Jaime | Stevens | 3 | Project | 75 |
 | Jaime | Stevens | 4 | Final | 88 |
+### Add an assignment to a course
+```
+Testcase:
+course_id=1
+```
+```      
+Output:
+```
+
+### Change the percentages of the categories for a course
+```
+Test case:
+category = 'Assignments', course_id = 1
+```
+```
+Output:
+```
+
+### Add 2 points to the score of each student on an assignment
+```
+Testcase:
+assignment_id=3
+```
+```
+Output:
+```
+
+### Add 2 points just to those students whose last name contains a ‘Q’
+```
+Testcase:
+assignment_id=1
+```
+```
+Output:
+```
+
+### Compute the grade for a student
+```
+Testcase:
+student_id=1
+```
+```
+Output:
+```
+
+### Compute the grade for a student, where the lowest score for a given category is dropped
+```
+Testcase:
+student_id=2
+```
+```
+Output:
+```
+
