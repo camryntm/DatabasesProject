@@ -1,4 +1,4 @@
-# DatabasesProject
+# Databases Project
 
 ## Problem Statement
    
@@ -37,8 +37,8 @@ course_id INT PRIMARY KEY,
 department VARCHAR(255),  
 course_number INT,  
 course_name VARCHAR(255),  
-semester VARCHAR(255),  
-year INT  
+semester VARCHAR(255),
+year INT
 );
 ```
 Student table:
