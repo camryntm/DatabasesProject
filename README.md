@@ -47,6 +47,26 @@ Install Docker, MSSQL, Azure Data Studio (or Visual Studio Code) and run on your
    Password - > dockerStrongPwd123
    ```
 
+### Creating The Database
+Connect to your DBMS using a SQL client (e.g., Azure Data Studio, Visual Studio Code). 
+<br>
+Create the Initial GradeBook DB using the below code
+<br>
+```
+-- Create a new database called 'GradeBookDB'
+-- Connect to the 'master' database to run this snippet
+USE master
+GO
+-- Create the new database if it does not exist already
+IF NOT EXISTS (
+    SELECT [name]
+        FROM sys.databases
+        WHERE [name] = N'GradeBookDB'
+)
+CREATE DATABASE GradeBookDB
+GO
+```
+
 ### Creating Tables
 Connect to your DBMS using a SQL client (e.g., Azure Data Studio, Visual Studio Code).  
 <br>
