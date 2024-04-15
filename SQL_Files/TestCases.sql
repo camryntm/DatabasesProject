@@ -1,3 +1,5 @@
+USE GradeBookDB
+
 /* 5. Retrieve all students in a given course (e.g., course_id = 1): */
 
 SELECT s.* FROM Student s
