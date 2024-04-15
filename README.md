@@ -246,7 +246,7 @@ Output:
 | 2 | Midterm | 30 | 1 |
 | 3 | Project | 15 | 1 |
 | 4 | Final Exam | 40 | 1 |
-| 5 | Extra Credit | 10 | 1 |
+| 5 | Lab | 10 | 1 |
 
 ### Change the percentages of the categories for a course
 ```
@@ -258,11 +258,11 @@ Output:
 ```
 | assignment_id | category | percentage | course_id |
 | --- | --- | --- | --- |
-| 1 | Assignments | 30 | 1 |
-| 2 | Midterm | 30 | 1 |
+| 1 | Assignments | 15 | 1 |
+| 2 | Midterm | 20 | 1 |
 | 3 | Project | 15 | 1 |
 | 4 | Final Exam | 40 | 1 |
-| 5 | Extra Credit | 10 | 1 |
+| 5 | Lab | 10 | 1 |
 
 ### Add 2 points to the score of each student on an assignment
 ```
