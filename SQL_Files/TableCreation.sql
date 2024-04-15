@@ -48,7 +48,7 @@ VALUES (1, 'Jamie', 'Stevens', 1),
 
 /* Insert values into Assignment table */
 INSERT INTO Assignment (assignment_id, category, percentage, course_id)
-VALUES (1, 'Assignments', 15.0, 1),
+VALUES (1, 'Assignment 1', 15.0, 1),
        (2, 'Midterm', 30.0, 1),
        (3, 'Project', 15.0, 1),
        (4, 'Final Exam', 40.0, 1);
