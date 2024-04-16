@@ -321,10 +321,19 @@ assignment_id=2
 ```
 ```
 Output:
-average_score=83.125
-highest_score=92
-lowest_score=78
 ```
+| average_score |
+| --- |
+| 82.87500 |
+
+| highest_score |
+| --- |
+| 91.00 |
+
+| average_score |
+| --- |
+| 78.00 |
+
 ### List all of the students in a given course
 ```
 Test Case:
