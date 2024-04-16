@@ -357,23 +357,47 @@ Course_id=1
 ```
 Output:
 ```
-| first_name | last_name | assignment_id | category | score |
-| --- | --- | --- | --- | --- |
-| Monae | Adams | 1 | Assignments | 9 |
-| Monae | Adams | 2 | Midterm | 84.5 |
-| Monae | Adams | 3 | Project | 82 |
-| Monae | Adams | 4 | Final | 92 |
-| Alliston | Dunn | 1 | Assignments | 7 |
-| Alliston | Dunn | 2 | Midterm | 78 |
-| Alliston | Dunn | 3 | Project | 90 |
-| Alliston | Dunn | 4 | Final | 95 |
-| Sam | McQueen | 2 | Midterm | 78 |
-| Sam | McQueen | 3 | Project | 70 |
-| Sam | McQueen | 4 | Final | 85 |
-| Jaime | Stevens | 1 | Assignments | 6.5 |
-| Jaime | Stevens | 2 | Midterm | 92 |
-| Jaime | Stevens | 3 | Project | 75 |
-| Jaime | Stevens | 4 | Final | 88 |
+|first_name|last_name|assignment_name|score|
+|---|---|---|---|
+|Monae|Adams|Homework 1|74.00|
+|Monae|Adams|Homework 2|84.50|
+|Monae|Adams|Homework 3|89.00|
+|Monae|Adams|Quiz 1|79.00|
+|Monae|Adams|Quiz 2|88.00|
+|Monae|Adams|Quiz 3|81.00|
+|Monae|Adams|Midterm Exam|85.00|
+|Monae|Adams|Project 1|80.00|
+|Monae|Adams|Project 2|78.00|
+|Monae|Adams|Final Exam|86.00|
+|Alliston|Dunn|Homework 1|90.00|
+|Alliston|Dunn|Homework 2|91.00|
+|Alliston|Dunn|Homework 3|88.00|
+|Alliston|Dunn|Quiz 1|85.00|
+|Alliston|Dunn|Quiz 2|94.00|
+|Alliston|Dunn|Quiz 3|90.00|
+|Alliston|Dunn|Midterm Exam|87.00|
+|Alliston|Dunn|Project 1|82.00|
+|Alliston|Dunn|Project 2|89.00|
+|Alliston|Dunn|Final Exam|91.00|
+|Sam|McQueen|Homework 2|78.00|
+|Sam|McQueen|Homework 3|77.00|
+|Sam|McQueen|Quiz 1|83.00|
+|Sam|McQueen|Quiz 2|86.00|
+|Sam|McQueen|Quiz 3|88.00|
+|Sam|McQueen|Midterm Exam|92.00|
+|Sam|McQueen|Project 1|75.00|
+|Sam|McQueen|Project 2|81.00|
+|Sam|McQueen|Final Exam|84.00|
+|Jamie|Stevens|Homework 1|85.00|
+|Jamie|Stevens|Homework 2|78.00|
+|Jamie|Stevens|Homework 3|92.00|
+|Jamie|Stevens|Quiz 1|88.00|
+|Jamie|Stevens|Quiz 2|95.00|
+|Jamie|Stevens|Quiz 3|82.00|
+|Jamie|Stevens|Midterm Exam|90.00|
+|Jamie|Stevens|Project 1|87.00|
+|Jamie|Stevens|Project 2|91.00|
+|Jamie|Stevens|Final Exam|93.00|
 ### Add an assignment to a course
 ```
 Testcase:
