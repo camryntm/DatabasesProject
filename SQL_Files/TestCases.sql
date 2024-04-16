@@ -1,4 +1,4 @@
-USE DemoGradeBookDB
+USE GradeBookDB
 
 /* Task 4. Retrieve average/highest/lowest score of an assignment (e.g., assignment_id = 2): */
 /* Average score */
