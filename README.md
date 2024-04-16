@@ -138,7 +138,7 @@ VALUES (1, 'CSCI', 432, 'Database Systems', 'Spring', 2024);
 
 
 
-Inseertions for Category table:
+Insertions for Category table:
 ```
 INSERT INTO Category (category_id, name, percentage, course_id)
 VALUES (1, 'Homework', 15.00, 1),
@@ -147,6 +147,13 @@ VALUES (1, 'Homework', 15.00, 1),
        (4, 'Project', 15.00, 1),
        (5, 'Final', 40.00, 1);
 ```
+| category_id | name | percentage | course_id |
+| --- | --- | --- | --- |
+| 1 | Homework | 15.00 | 1 |
+| 2 | Quizzes | 10.00 | 1 |
+| 3 | Midterm | 20.00 | 1 |
+| 4 | Project | 15.00 | 1 |
+| 5 | Final | 40.00 | 1 |
 
 
 
@@ -194,12 +201,18 @@ VALUES
   /* Final Exam */
   (10, 'Final Exam', (SELECT category_id FROM Category WHERE name = 'Final'));
 ```
-| assignment_id | category | percentage | course_id |
-| --- | --- | --- | --- |
-| 1 | Assignments | 15 | 1 |
-| 2 | Midterm | 30 | 1 |
-| 3 | Project | 15 | 1 |
-| 4 | Final Exam | 40 | 1 |
+| assignment_id | name | category |
+| --- | --- | --- |
+| 1 | Homework 1 | 1 |
+| 2 | Homework 2 | 1 |
+| 3 | Homework 3 | 1 |
+| 4 | Quiz 1 | 2 |
+| 5 | Quiz 2 | 2 |
+| 6 | Quiz 3 | 2 |
+| 7 | Midterm Exam | 3 |
+| 8 | Project 1 | 4 |
+| 9 | Project 2 | 4 |
+| 10 | Final Exam | 5 |
 
 
 
@@ -259,18 +272,46 @@ VALUES
 ```
 | grade_id | assignment_id | student_id | score |
 | --- | --- | --- | --- |
-| 1 | 1 | 1 | 6.5 |
-| 2 | 2 | 1 | 92.0 |
-| 3 | 3 | 1 | 75.0 |
-| 4 | 4 | 1 | 88.0 |
-| 5 | 1 | 2 | 9.0 |
-| 6 | 2 | 2 | 84.5 |
-| 7 | 3 | 2 | 82.0 |
-| 8 | 4 | 2 | 92.0 |
-| 9 | 1 | 3 | 7.0 |
-| 10 | 2 | 3 | 78.0 |
-| 11 | 3 | 3 | 90.0 |
-| 12 | 4 | 3 | 95.0 |
+| 1 |	1 | 1 | 85.00 |
+| 2 | 2 | 1 | 78.00 |
+| 3 | 3 | 1 | 92.00 |
+| 4 | 4 | 1 | 88.00 |
+| 5 | 5 | 1 | 95.00 |
+| 6 | 6 | 1 | 82.00 |
+| 7 | 7 | 1 | 90.00 |
+| 8 | 8 | 1 | 87.00 |
+| 9 | 9 | 1 | 91.00 |
+| 10 | 10 | 1 | 93.00 |
+| 11 | 1 | 2 | 74.00 |
+| 12 | 2 | 2 | 84.50 |
+| 13 | 3 | 2 | 89.00 |
+| 14 | 4 | 2 | 79.00 |
+| 15 | 5 | 2 | 88.00 |
+| 16 | 6 | 2 | 81.00 |
+| 17 | 7 | 2 | 85.00 |
+| 18 | 8 | 2 | 80.00 |
+| 19 | 9 | 2 | 78.00 |
+| 20 | 10 | 2 | 86.00 |
+| 21 | 1 | 3 | 90.00 |
+| 22 | 2 | 3 | 91.00 |
+| 23 | 3 | 3 | 88.00 |
+| 24 | 4 | 3 | 85.00 |
+| 25 | 5 | 3 | 94.00 |
+| 26 | 6 | 3 | 90.00 |
+| 27 | 7 | 3 | 87.00 |
+| 28 | 8 | 3 | 82.00 |
+| 29 | 9 | 3 | 89.00 |
+| 30 | 10 | 3 | 91.00 |
+| 31 | 2 | 4 | 78.00 |
+| 32 | 3 | 4 | 77.00 |
+| 33 | 4 | 4 | 83.00 |
+| 34 | 5 | 4 | 86.00 |
+| 35 | 6 | 4 | 88.00 |
+| 36 | 7 | 4 | 92.00 |
+| 37 | 8 | 4 | 75.00 |
+| 38 | 9 | 4 | 81.00 |
+| 39 | 10 | 4 | 84.00 |
+
 
 ## Test cases and Result
 ### Compute the average/highest/lowest score of an assignment
