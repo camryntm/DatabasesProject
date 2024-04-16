@@ -90,5 +90,13 @@ JOIN Assignment a ON g.assignment_id = a.assignment_id
 WHERE s.student_id = 2
 GROUP BY s.first_name, s.last_name;
 
+/* 12. Compute the grade for a student, where the lowest score for a given category is dropped (e.g., student_id = 2) (category = assignment): */ 
+SELECT s.first_name, s.last_name, 
+  (SUM(g.score) - MIN(g.score)) / (COUNT(g.score) - 1) Grades
+FROM Student s
+JOIN Grades g ON s.student_id = g.student_id
+WHERE s.student_id = 2
+GROUP BY s.first_name, s.last_name;
+
 
 
