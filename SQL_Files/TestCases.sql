@@ -1,4 +1,4 @@
-USE GradeBookDB
+USE DemoGradeBookDB
 
 /* Task 4. Retrieve average/highest/lowest score of an assignment (e.g., assignment_id = 2): */
 /* Average score */
@@ -38,6 +38,7 @@ ORDER BY s.last_name, s.first_name, a.assignment_id;
 /* Task 7: Add an assignment to a course (eg: New Assignment)*/
 INSERT INTO Assignment (assignment_id, name, category_id)
 VALUES (11, 'New Assignment', 1); 
+SELECT * FROM Assignment;
 
 --********************************
 /* Task 8: Change the percentages of the categories for a course (e.g., change Homework to 20% for course_id = 1 and Final to 35%)*/
@@ -47,6 +48,7 @@ WHERE name = 'Homework' AND course_id = 1;
 UPDATE Category
 SET percentage = 35.0
 WHERE name = 'Final' AND course_id = 1;
+SELECT * FROM Category
 
 --********************************
 /*Task 9: Add 2 points to the score of each student on an assignment and handle missing entries*/
@@ -73,6 +75,15 @@ WHERE NOT EXISTS (
 );
 
 
+--This is to show updated grades
+SELECT s.first_name, s.last_name, a.name AS assignment_name, g.score
+FROM Student s
+JOIN Grades g ON s.student_id = g.student_id
+JOIN Assignment a ON g.assignment_id = a.assignment_id
+JOIN Category c ON a.category_id = c.category_id
+WHERE c.course_id = 1
+ORDER BY s.last_name, s.first_name, a.assignment_id;
+
 
 --********************************
 /*Task 10: Add 2 points to the score of students whose last name contains a 'Q' and handle missing entries*/
@@ -97,6 +108,14 @@ WHERE last_name LIKE '%Q%' AND NOT EXISTS (
     WHERE g.student_id = s.student_id AND g.assignment_id = 1
 );
 
+--This is to show updated grades
+SELECT s.first_name, s.last_name, a.name AS assignment_name, g.score
+FROM Student s
+JOIN Grades g ON s.student_id = g.student_id
+JOIN Assignment a ON g.assignment_id = a.assignment_id
+JOIN Category c ON a.category_id = c.category_id
+WHERE c.course_id = 1
+ORDER BY s.last_name, s.first_name, a.assignment_id;
 
 --********************************
 /*Task 11: Compute the grade for a student */
@@ -163,4 +182,3 @@ FROM (
 INNER JOIN Student s ON scores.student_id = s.student_id
 WHERE s.student_id = 1  -- Specify the student ID here
 GROUP BY s.student_id, s.first_name, s.last_name;
-
