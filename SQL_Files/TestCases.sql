@@ -1,13 +1,6 @@
 USE GradeBookDB
 
-/* 5. Retrieve all students in a given course (e.g., course_id = 1): */
-
-SELECT s.* FROM Student s
-JOIN Course c ON s.course_id = c.course_id
-WHERE c.course_id = 1;
-
-/* 4. Retrieve average/highest/lowest score of an assignment (e.g., assignment_id = 2): */
-
+/* Task 4. Retrieve average/highest/lowest score of an assignment (e.g., assignment_id = 2): */
 /* Average score */
 SELECT AVG(score) AS average_score
 FROM Grades
@@ -23,36 +16,57 @@ SELECT MIN(score) AS lowest_score
 FROM Grades
 WHERE assignment_id = 2;
 
-/* 6. Retrieve all students in a given course and all of their scores on every assignmnet (e.g., course_id = 1): */
-SELECT s.first_name, s.last_name, a.assignment_id, a.category, g.score
+
+--********************************
+/*Task 5. List all of the students in a given course (e.g., course_id = 1):*/
+SELECT s.*
+FROM Student s
+WHERE s.course_id = 1;
+
+--********************************
+/*Task 6. List all of the students in a course and all of their scores on every assignment (e.g., course_id = 1):*/
+SELECT s.first_name, s.last_name, a.name AS assignment_name, g.score
 FROM Student s
 JOIN Grades g ON s.student_id = g.student_id
 JOIN Assignment a ON g.assignment_id = a.assignment_id
-WHERE a.course_id = 1
+JOIN Category c ON a.category_id = c.category_id
+WHERE c.course_id = 1
 ORDER BY s.last_name, s.first_name, a.assignment_id;
 
-/* Run "SELECT * FROM Assignment;" first!! */
-/* 7. Add an assignment to a course (e.g., course_id = 1): */
-INSERT INTO Assignment (assignment_id, category, percentage, course_id)
-VALUES (5, 'Lab', 10.0, 1);
 
-/* 8. Change the percentages of categories for a course (e.g., course_id = 1, new percentage for Midterm = 20%): */
-UPDATE Assignment
+--********************************
+/* Task 7: Add an assignment to a course (eg: New Assignment)*/
+INSERT INTO Assignment (assignment_id, name, category_id)
+VALUES (11, 'New Assignment', 1); 
+
+--********************************
+/* Task 8: Change the percentages of the categories for a course (e.g., change Homework to 20% for course_id = 1 and Final to 35%)*/
+UPDATE Category
 SET percentage = 20.0
-WHERE category = 'Midterm' AND course_id = 1;
+WHERE name = 'Homework' AND course_id = 1;
+UPDATE Category
+SET percentage = 35.0
+WHERE name = 'Final' AND course_id = 1;
 
-/* 9. Add 2 points to the score of each student on an assignment (e.g., assignment_id = 3) */
+--********************************
+/*Task 9: Add 2 points to the score of each student on an assignment and handle missing entries*/
+/* Update existing grades */
 UPDATE Grades
 SET score = score + 2
 WHERE assignment_id = 3;
 
--- Insert new grade entries for students who do not have a grade for assignment 3
-INSERT INTO Grades (assignment_id, student_id, score)
-SELECT 3 AS assignment_id, s.student_id, 2 AS score
+/* Insert new grade entries for students who do not have a grade for assignment 3 */
+DECLARE @maxGradeId INT;
+SELECT @maxGradeId = COALESCE(MAX(grade_id), 0) FROM Grades; -- Get the current maximum grade_id
+
+INSERT INTO Grades (grade_id, assignment_id, student_id, score)
+SELECT
+    @maxGradeId + ROW_NUMBER() OVER (ORDER BY s.student_id) AS new_grade_id,  -- Generates unique grade_id
+    3 AS assignment_id,  -- Assuming you want to insert for assignment_id = 3
+    s.student_id,
+    2 AS score  -- Assuming starting grade is 2
 FROM Student s
-JOIN Assignment a ON s.course_id = a.course_id
-WHERE a.assignment_id = 3
-AND NOT EXISTS (
+WHERE NOT EXISTS (
     SELECT 1
     FROM Grades g
     WHERE g.student_id = s.student_id AND g.assignment_id = 3
@@ -60,43 +74,93 @@ AND NOT EXISTS (
 
 
 
-/* 10. Add 2 points to the score of students whose last name contains a 'Q' */
+--********************************
+/*Task 10: Add 2 points to the score of students whose last name contains a 'Q' and handle missing entries*/
+/* Update existing grades for students with 'Q' in their last name for assignment_id = 1 */
 UPDATE Grades
 SET score = score + 2
 WHERE assignment_id = 1 AND student_id IN (
-    SELECT student_id FROM Student
-    WHERE last_name LIKE '%Q%'
+    SELECT student_id FROM Student WHERE last_name LIKE '%Q%'
 );
 
--- Insert new grade entries for students whose last name contains 'Q' and do not have a grade for assignment 1
+/* Insert new grade entries with unique grade_id for students whose last name contains 'Q' and do not have a grade for assignment_id = 1 */
 INSERT INTO Grades (grade_id, assignment_id, student_id, score)
-SELECT (
-    SELECT COALESCE(MAX(grade_id), 0) + 1 FROM Grades
-), 1 AS assignment_id, s.student_id, 2 AS score
+SELECT 
+    (SELECT MAX(grade_id) FROM Grades) + ROW_NUMBER() OVER (ORDER BY s.student_id),  /* Generates unique grade_id */
+    1,  /* assignment_id = 1 */
+    s.student_id, 
+    2  /* Assuming starting grade is 2 */
 FROM Student s
-WHERE s.last_name LIKE '%Q%'
-AND NOT EXISTS (
+WHERE last_name LIKE '%Q%' AND NOT EXISTS (
     SELECT 1
     FROM Grades g
     WHERE g.student_id = s.student_id AND g.assignment_id = 1
 );
 
 
-/* 11. Compute the grade for a student (e.g., student_id = 1): */
-SELECT s.first_name, s.last_name, SUM(a.percentage * g.score / 100) AS grade
-FROM Student s
-JOIN Grades g ON s.student_id = g.student_id
-JOIN Assignment a ON g.assignment_id = a.assignment_id
-WHERE s.student_id = 2
-GROUP BY s.first_name, s.last_name;
+--********************************
+/*Task 11: Compute the grade for a student */
+-- Compute the grade for a specific student (e.g., student_id = 1)
+SELECT 
+    s.student_id,
+    s.first_name,
+    s.last_name,
+    SUM(weighted_score) AS final_grade
+FROM (
+    -- Subquery to calculate weighted scores for each category
+    SELECT
+        g.student_id,
+        c.percentage,
+        AVG(g.score) AS average_score,  -- Calculate average score per category
+        (AVG(g.score) * c.percentage / 100.0) AS weighted_score  -- Apply category weight
+    FROM Grades g
+    INNER JOIN Assignment a ON g.assignment_id = a.assignment_id
+    INNER JOIN Category c ON a.category_id = c.category_id
+    GROUP BY g.student_id, c.category_id, c.percentage
+) AS scores
+INNER JOIN Student s ON scores.student_id = s.student_id
+WHERE s.student_id = 1  -- Specify the student ID here
+GROUP BY s.student_id, s.first_name, s.last_name;
 
-/* 12. Compute the grade for a student, where the lowest score for a given category is dropped (e.g., student_id = 2) (category = assignment): */ 
-SELECT s.first_name, s.last_name, 
-  (SUM(g.score) - MIN(g.score)) / (COUNT(g.score) - 1) Grades
-FROM Student s
-JOIN Grades g ON s.student_id = g.student_id
-WHERE s.student_id = 2
-GROUP BY s.first_name, s.last_name;
 
 
+--********************************
+/*Task 12: Compute the grade for a student, where the lowest score for a given category is dropped (dropping the lowest score in the "Quizzes" category) */
+SELECT 
+    s.student_id,
+    s.first_name,
+    s.last_name,
+    SUM(weighted_score) AS final_grade
+FROM (
+    -- Subquery to calculate weighted scores for each category
+    SELECT
+        g.student_id,
+        c.category_id,
+        c.percentage,
+        CASE 
+            WHEN c.name = 'Quizzes' THEN 
+                (AVG(g.score) * c.percentage / 100.0)  -- Apply category weight with lowest quiz score dropped
+            ELSE 
+                (AVG(g.score) * c.percentage / 100.0)  -- Normal weight calculation for other categories
+        END AS weighted_score
+    FROM Grades g
+    INNER JOIN Assignment a ON g.assignment_id = a.assignment_id
+    INNER JOIN Category c ON a.category_id = c.category_id
+    LEFT JOIN (
+        -- Subquery to find the lowest quiz score for the student
+        SELECT
+            g.student_id,
+            MIN(g.score) as min_quiz_score
+        FROM Grades g
+        INNER JOIN Assignment a ON g.assignment_id = a.assignment_id
+        INNER JOIN Category c ON a.category_id = c.category_id
+        WHERE c.name = 'Quizzes'
+        GROUP BY g.student_id
+    ) AS min_scores ON g.student_id = min_scores.student_id AND g.score = min_scores.min_quiz_score
+    WHERE min_scores.min_quiz_score IS NULL OR c.name <> 'Quizzes'
+    GROUP BY g.student_id, c.category_id, c.percentage, c.name
+) AS scores
+INNER JOIN Student s ON scores.student_id = s.student_id
+WHERE s.student_id = 1  -- Specify the student ID here
+GROUP BY s.student_id, s.first_name, s.last_name;
 
