@@ -20,7 +20,11 @@ You are asked to implement a grade book to keep track student grades for several
 - Compute the grade for a student, where the lowest score for a given category is dropped.
 
 ## Instructions
-   The system is implemented in SQL. Please read below to compile and execute the program:
+   The system is implemented in SQL. The code is split up into three different queries (all mean't to be ran in that order)
+   1. GradebookDB_Creation.sql
+   2. TableCreation.sql
+   3. TestCases.sql
+##### Please read below to compile and execute the program...
    
 ### Prerequisites
 Install Docker, MSSQL, Azure Data Studio (or Visual Studio Code) and run on your local machine/remote server
