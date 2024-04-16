@@ -406,29 +406,36 @@ course_id=1
 ```      
 Output:
 ```
-| assignment_id | category | percentage | course_id |
-| --- | --- | --- | --- |
-| 1 | Assignments | 15 | 1 |
-| 2 | Midterm | 30 | 1 |
-| 3 | Project | 15 | 1 |
-| 4 | Final Exam | 40 | 1 |
-| 5 | Lab | 10 | 1 |
+|assignment_id|name|category_id|
+|---|---|---|
+|1|Homework 1|1|
+|2|Homework 2|1|
+|3|Homework 3|1|
+|4|Quiz 1|2|
+|5|Quiz 2|2|
+|6|Quiz 3|2|
+|7|Midterm Exam|3|
+|8|Project 1|4|
+|9|Project 2|4|
+|10|Final Exam|5|
+|11|New Assignment|1|
 
 ### Change the percentages of the categories for a course
 ```
 Test case:
-category = 'Assignments', course_id = 1
+category = 'Homework', course_id = 1
+category = 'Final', course_id = 1
 ```
 ```
 Output:
 ```
-| assignment_id | category | percentage | course_id |
-| --- | --- | --- | --- |
-| 1 | Assignments | 15 | 1 |
-| 2 | Midterm | 20 | 1 |
-| 3 | Project | 15 | 1 |
-| 4 | Final Exam | 40 | 1 |
-| 5 | Lab | 10 | 1 |
+|category_id|name|percentage|course_id|
+|---|---|---|---|
+|1|Homework|20.00|1|
+|2|Quizzes|10.00|1|
+|3|Midterm|20.00|1|
+|4|Project|15.00|1|
+|5|Final|35.00|1|
 
 ### Add 2 points to the score of each student on an assignment
 ```
@@ -438,23 +445,47 @@ assignment_id=3
 ```
 Output:
 ```
-| first_name | last_name | assignment_id | category | score |
-| --- | --- | --- | --- | --- |
-| Monae | Adams | 1 | Assignments | 9 |
-| Monae | Adams | 2 | Midterm | 84.5 |
-| Monae | Adams | 3 | Project | 84 |
-| Monae | Adams | 4 | Final | 92 |
-| Alliston | Dunn | 1 | Assignments | 7 |
-| Alliston | Dunn | 2 | Midterm | 78 |
-| Alliston | Dunn | 3 | Project | 92 |
-| Alliston | Dunn | 4 | Final | 95 |
-| Sam | McQueen | 2 | Midterm | 78 |
-| Sam | McQueen | 3 | Project | 72 |
-| Sam | McQueen | 4 | Final | 85 |
-| Jaime | Stevens | 1 | Assignments | 6.5 |
-| Jaime | Stevens | 2 | Midterm | 92 |
-| Jaime | Stevens | 3 | Project | 77 |
-| Jaime | Stevens | 4 | Final | 88 |
+|grade_id|assignment_id|student_id|score|
+|---|---|---|---|
+|1|1|1|85.00|
+|2|2|1|78.00|
+|3|3|1|94.00|
+|4|4|1|88.00|
+|5|5|1|95.00|
+|6|6|1|82.00|
+|7|7|1|90.00|
+|8|8|1|87.00|
+|9|9|1|91.00|
+|10|10|1|93.00|
+|11|1|2|74.00|
+|12|2|2|84.50|
+|13|3|2|91.00|
+|14|4|2|79.00|
+|15|5|2|88.00|
+|16|6|2|81.00|
+|17|7|2|85.00|
+|18|8|2|80.00|
+|19|9|2|78.00|
+|20|10|2|86.00|
+|21|1|3|90.00|
+|22|2|3|91.00|
+|23|3|3|90.00|
+|24|4|3|85.00|
+|25|5|3|94.00|
+|26|6|3|90.00|
+|27|7|3|87.00|
+|28|8|3|82.00|
+|29|9|3|89.00|
+|30|10|3|91.00|
+|31|2|4|78.00|
+|32|3|4|79.00|
+|33|4|4|83.00|
+|34|5|4|86.00|
+|35|6|4|88.00|
+|36|7|4|92.00|
+|37|8|4|75.00|
+|38|9|4|81.00|
+|39|10|4|84.00|
 
 
 ### Add 2 points just to those students whose last name contains a ‘Q’
@@ -465,7 +496,48 @@ assignment_id=1
 ```
 Output:
 ```
-
+|first_name|last_name|assignment_name|score|
+|---|---|---|---|
+|Monae|Adams|Homework 1|74.00|
+|Monae|Adams|Homework 2|84.50|
+|Monae|Adams|Homework 3|91.00|
+|Monae|Adams|Quiz 1|79.00|
+|Monae|Adams|Quiz 2|88.00|
+|Monae|Adams|Quiz 3|81.00|
+|Monae|Adams|Midterm Exam|85.00|
+|Monae|Adams|Project 1|80.00|
+|Monae|Adams|Project 2|78.00|
+|Monae|Adams|Final Exam|86.00|
+|Alliston|Dunn|Homework 1|90.00|
+|Alliston|Dunn|Homework 2|91.00|
+|Alliston|Dunn|Homework 3|90.00|
+|Alliston|Dunn|Quiz 1|85.00|
+|Alliston|Dunn|Quiz 2|94.00|
+|Alliston|Dunn|Quiz 3|90.00|
+|Alliston|Dunn|Midterm Exam|87.00|
+|Alliston|Dunn|Project 1|82.00|
+|Alliston|Dunn|Project 2|89.00|
+|Alliston|Dunn|Final Exam|91.00|
+|Sam|McQueen|Homework 1|2.00|
+|Sam|McQueen|Homework 2|78.00|
+|Sam|McQueen|Homework 3|79.00|
+|Sam|McQueen|Quiz 1|83.00|
+|Sam|McQueen|Quiz 2|86.00|
+|Sam|McQueen|Quiz 3|88.00|
+|Sam|McQueen|Midterm Exam|92.00|
+|Sam|McQueen|Project 1|75.00|
+|Sam|McQueen|Project 2|81.00|
+|Sam|McQueen|Final Exam|84.00|
+|Jamie|Stevens|Homework 1|85.00|
+|Jamie|Stevens|Homework 2|78.00|
+|Jamie|Stevens|Homework 3|94.00|
+|Jamie|Stevens|Quiz 1|88.00|
+|Jamie|Stevens|Quiz 2|95.00|
+|Jamie|Stevens|Quiz 3|82.00|
+|Jamie|Stevens|Midterm Exam|90.00|
+|Jamie|Stevens|Project 1|87.00|
+|Jamie|Stevens|Project 2|91.00|
+|Jamie|Stevens|Final Exam|93.00|
 ### Compute the grade for a student
 ```
 Testcase:
@@ -474,18 +546,18 @@ student_id=1
 ```
 Output:
 ```
-| first_name | last_name | grade |
-| --- | --- | --- |
-| Jamie | Stevens | 74.95 |
+|student_id|first_name|last_name|final_grade|
+|---|---|---|---|
+|1|Jamie|Stevens|89.866666|
 
 ### Compute the grade for a student, where the lowest score for a given category is dropped
 ```
 Testcase:
-student_id=2
+student_id=1
 ```
 ```
 Output:
 ```
-| first_name | last_name | grade |
-| --- | --- | --- |
-| Monae | Adams | 5.7 |
+|student_id|first_name|last_name|final_grade|
+|---|---|---|---|
+|1|Jamie|Stevens|90.183333|
